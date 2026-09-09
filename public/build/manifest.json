@@ -1,0 +1,93 @@
+{
+  "_amiri-400-normal-Bv6IM0kz.woff": {
+    "file": "assets/amiri-400-normal-Bv6IM0kz.woff",
+    "src": "_amiri-400-normal-Bv6IM0kz.woff"
+  },
+  "_amiri-400-normal-Czk41Rjn.woff2": {
+    "file": "assets/amiri-400-normal-Czk41Rjn.woff2",
+    "src": "_amiri-400-normal-Czk41Rjn.woff2"
+  },
+  "_amiri-700-normal-BH9dHmOv.woff": {
+    "file": "assets/amiri-700-normal-BH9dHmOv.woff",
+    "src": "_amiri-700-normal-BH9dHmOv.woff"
+  },
+  "_amiri-700-normal-DIjoEGk6.woff2": {
+    "file": "assets/amiri-700-normal-DIjoEGk6.woff2",
+    "src": "_amiri-700-normal-DIjoEGk6.woff2"
+  },
+  "_fonts-C3fcyjJP.css": {
+    "file": "assets/fonts-C3fcyjJP.css",
+    "src": "_fonts-C3fcyjJP.css"
+  },
+  "_playfair-display-500-normal-BScSeVwi.woff": {
+    "file": "assets/playfair-display-500-normal-BScSeVwi.woff",
+    "src": "_playfair-display-500-normal-BScSeVwi.woff"
+  },
+  "_playfair-display-500-normal-DIxvyhka.woff2": {
+    "file": "assets/playfair-display-500-normal-DIxvyhka.woff2",
+    "src": "_playfair-display-500-normal-DIxvyhka.woff2"
+  },
+  "_playfair-display-600-normal-CZLGqjJe.woff2": {
+    "file": "assets/playfair-display-600-normal-CZLGqjJe.woff2",
+    "src": "_playfair-display-600-normal-CZLGqjJe.woff2"
+  },
+  "_playfair-display-600-normal-CxxueQ0Z.woff": {
+    "file": "assets/playfair-display-600-normal-CxxueQ0Z.woff",
+    "src": "_playfair-display-600-normal-CxxueQ0Z.woff"
+  },
+  "_playfair-display-700-normal-Bc_1Q1cG.woff": {
+    "file": "assets/playfair-display-700-normal-Bc_1Q1cG.woff",
+    "src": "_playfair-display-700-normal-Bc_1Q1cG.woff"
+  },
+  "_playfair-display-700-normal-CuDiGg7c.woff2": {
+    "file": "assets/playfair-display-700-normal-CuDiGg7c.woff2",
+    "src": "_playfair-display-700-normal-CuDiGg7c.woff2"
+  },
+  "_plus-jakarta-sans-400-normal-BDKaGhyp.woff": {
+    "file": "assets/plus-jakarta-sans-400-normal-BDKaGhyp.woff",
+    "src": "_plus-jakarta-sans-400-normal-BDKaGhyp.woff"
+  },
+  "_plus-jakarta-sans-400-normal-Dhut76fR.woff2": {
+    "file": "assets/plus-jakarta-sans-400-normal-Dhut76fR.woff2",
+    "src": "_plus-jakarta-sans-400-normal-Dhut76fR.woff2"
+  },
+  "_plus-jakarta-sans-500-normal-Bf-nb4oT.woff2": {
+    "file": "assets/plus-jakarta-sans-500-normal-Bf-nb4oT.woff2",
+    "src": "_plus-jakarta-sans-500-normal-Bf-nb4oT.woff2"
+  },
+  "_plus-jakarta-sans-500-normal-DYtqi0QS.woff": {
+    "file": "assets/plus-jakarta-sans-500-normal-DYtqi0QS.woff",
+    "src": "_plus-jakarta-sans-500-normal-DYtqi0QS.woff"
+  },
+  "_plus-jakarta-sans-600-normal-BR_Ojra4.woff": {
+    "file": "assets/plus-jakarta-sans-600-normal-BR_Ojra4.woff",
+    "src": "_plus-jakarta-sans-600-normal-BR_Ojra4.woff"
+  },
+  "_plus-jakarta-sans-600-normal-DLTa1BUW.woff2": {
+    "file": "assets/plus-jakarta-sans-600-normal-DLTa1BUW.woff2",
+    "src": "_plus-jakarta-sans-600-normal-DLTa1BUW.woff2"
+  },
+  "_plus-jakarta-sans-700-normal-CfpNZvy6.woff2": {
+    "file": "assets/plus-jakarta-sans-700-normal-CfpNZvy6.woff2",
+    "src": "_plus-jakarta-sans-700-normal-CfpNZvy6.woff2"
+  },
+  "_plus-jakarta-sans-700-normal-DqEcQeE5.woff": {
+    "file": "assets/plus-jakarta-sans-700-normal-DqEcQeE5.woff",
+    "src": "_plus-jakarta-sans-700-normal-DqEcQeE5.woff"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CVgzaHp1.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BDvRwXAh.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}

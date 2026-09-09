@@ -1,0 +1,1 @@
+document.addEventListener(`alpine:init`,()=>{Alpine.data(`site`,()=>({menuOpen:!1,searchOpen:!1,openFaq:null,filter:`semua`,query:``}))});
