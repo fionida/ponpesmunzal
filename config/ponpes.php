@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'name' => 'Pondok Pesantren Nurul Huda',
-    'short_name' => 'Nurul Huda',
+    'name' => 'Pondok Pesantren Nurul Munzal',
+    'short_name' => 'Nurul Munzal',
     'tagline' => 'Ilmu • Adab • Manfaat',
     'motto' => 'Membangun Generasi Qur’ani, Berilmu dan Berakhlakul Karimah',
     'address' => 'Jl. Pesantren No. 12, Lowokwaru, Malang, Jawa Timur',
     'phone' => '(0341) 555-0123',
     'whatsapp' => '0812-3456-7890',
-    'email' => 'info@nurulhuda.ac.id',
+    'email' => 'info@nurulmunzal.ac.id',
     'hours' => 'Senin–Sabtu, 07.00–16.00',
     'socials' => [
         'youtube' => '#',

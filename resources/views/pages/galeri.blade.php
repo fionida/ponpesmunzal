@@ -21,8 +21,8 @@
 
     <div class="container-site py-16">
         <div class="mb-6">
-            <h2 class="font-serif text-3xl font-semibold">Galeri Foto</h2>
-            <p class="mt-1 text-sm text-muted">Kumpulan dokumentasi kegiatan pondok.</p>
+            <h2 class="font-serif text-3xl font-semibold">{{ $contents['galeri.foto_title'] ?? 'Galeri Foto' }}</h2>
+            <p class="mt-1 text-sm text-muted">{{ $contents['galeri.foto_text'] ?? 'Kumpulan dokumentasi kegiatan pondok.' }}</p>
         </div>
 
         @php $featuredFotos = $fotos->take(4); $restFotos = $fotos->skip(4); @endphp
@@ -65,7 +65,7 @@
 <section class="bg-mist py-16">
     <div class="container-site">
         <div class="mb-8">
-            <h2 class="font-serif text-3xl font-semibold">Galeri Video</h2>
+            <h2 class="font-serif text-3xl font-semibold">{{ $contents['galeri.video_title'] ?? 'Galeri Video' }}</h2>
             <p class="mt-1 text-sm text-muted">Profil, kegiatan, dan cuplikan kehidupan santri.</p>
         </div>
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -91,9 +91,9 @@
 </section>
 
 @include('partials.cta-banner', [
-    'heading' => 'Setiap Foto, Punya Cerita',
-    'text' => 'Kirim dokumentasi kegiatan yang pantas dibagikan kepada keluarga besar pondok.',
-    'button' => 'Kirim Dokumentasi',
+    'heading' => $contents['galeri.cta_title'] ?? 'Setiap Foto, Punya Cerita',
+    'text' => $contents['galeri.cta_text'] ?? 'Kirim dokumentasi kegiatan yang pantas dibagikan kepada keluarga besar pondok.',
+    'button' => $contents['galeri.cta_button'] ?? 'Kirim Dokumentasi',
     'href' => route('kontak'),
 ])
 @endsection

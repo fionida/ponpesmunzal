@@ -13,11 +13,13 @@
 
 <section class="relative z-10 -mt-8">
     <div class="container-site grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        @foreach (['Kurikulum Terpadu','Pembinaan Karakter','Lingkungan Islami','Tenaga Pengajar Kompeten'] as $f)
-            <div class="card-soft p-5">
-                <div class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-sand text-forest">◉</div>
-                <h3 class="font-semibold text-forest">{{ $f }}</h3>
-            </div>
+        @foreach (preg_split('/\r\n|\r|\n/', $contents['pendidikan.highlights'] ?? "Kurikulum Terpadu\nPembinaan Karakter\nLingkungan Islami\nTenaga Pengajar Kompeten") as $f)
+            @if (trim($f) !== '')
+                <div class="card-soft p-5">
+                    <div class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-sand text-forest">◉</div>
+                    <h3 class="font-semibold text-forest">{{ trim($f) }}</h3>
+                </div>
+            @endif
         @endforeach
     </div>
 </section>
@@ -26,8 +28,8 @@
     <div class="container-site">
         <div class="mb-8 flex items-end justify-between">
             <div>
-                <p class="text-xs font-semibold tracking-[0.18em] text-forest">PROGRAM PENDIDIKAN</p>
-                <h2 class="mt-2 font-serif text-3xl font-semibold">Program Pendidikan</h2>
+                <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['pendidikan.programs_eyebrow'] ?? 'PROGRAM PENDIDIKAN' }}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['pendidikan.programs_title'] ?? 'Program Pendidikan' }}</h2>
             </div>
             <a href="{{ route('pendaftaran') }}" class="text-sm font-semibold text-forest">Lihat Semua Program →</a>
         </div>
@@ -61,9 +63,7 @@
             <h3 class="mb-5 font-serif text-2xl font-semibold">{{ $contents['pendidikan.metode_title'] ?? 'Metode Pembelajaran' }}</h3>
             <div class="space-y-4">
                 @foreach (preg_split('/\r\n|\r|\n/', $contents['pendidikan.metode'] ?? "Sorogan & Bandongan|Bimbingan kitab secara personal dan klasikal.\nHalaqah & Diskusi|Melatih pemahaman dan adab berbicara.\nPraktik & Pembiasaan|Ilmu diamalkan dalam kehidupan asrama.\nEvaluasi Berkala|Setoran, ujian, dan rapor perkembangan.") as $line)
-                    @php
-                        $parts = array_map('trim', explode('|', $line, 2));
-                    @endphp
+                    @php $parts = array_map('trim', explode('|', $line, 2)); @endphp
                     @if (($parts[0] ?? '') !== '')
                         <div class="rounded-2xl bg-white p-4 shadow-sm">
                             <h4 class="font-semibold text-forest">{{ $parts[0] }}</h4>
@@ -80,8 +80,8 @@
     <div class="container-site">
         <div class="mb-8 flex items-end justify-between">
             <div>
-                <p class="text-xs font-semibold tracking-[0.18em] text-forest">FASILITAS PENDIDIKAN</p>
-                <h2 class="mt-2 font-serif text-3xl font-semibold">Sarana Belajar yang Lengkap</h2>
+                <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['pendidikan.fasilitas_eyebrow'] ?? 'FASILITAS PENDIDIKAN' }}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['pendidikan.fasilitas_title'] ?? 'Sarana Belajar yang Lengkap' }}</h2>
             </div>
             <a href="{{ route('galeri') }}" class="text-sm font-semibold text-forest">Lihat Semua Fasilitas →</a>
         </div>
@@ -101,9 +101,9 @@
 <section class="bg-mist py-16">
     <div class="container-site grid gap-8 lg:grid-cols-3">
         <div>
-            <p class="text-xs font-semibold tracking-[0.18em] text-forest">KEGIATAN BELAJAR SANTRI</p>
-            <h2 class="mt-2 font-serif text-3xl font-semibold">Ritme harian yang membentuk</h2>
-            <p class="mt-3 text-sm text-muted">Dari tahajud hingga istirahat malam, setiap waktu diisi dengan ibadah, belajar, dan istirahat yang seimbang.</p>
+            <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['pendidikan.jadwal_eyebrow'] ?? 'KEGIATAN BELAJAR SANTRI' }}</p>
+            <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['pendidikan.jadwal_title'] ?? 'Ritme harian yang membentuk' }}</h2>
+            <p class="mt-3 text-sm text-muted">{{ $contents['pendidikan.jadwal_text'] ?? 'Dari tahajud hingga istirahat malam, setiap waktu diisi dengan ibadah, belajar, dan istirahat yang seimbang.' }}</p>
             <div class="mt-5 grid grid-cols-2 gap-3">
                 <img src="{{ $img['study'] }}" class="h-28 rounded-xl object-cover" alt="">
                 <img src="{{ $img['prayer'] }}" class="h-28 rounded-xl object-cover" alt="">
@@ -125,15 +125,16 @@
             </ul>
         </div>
         <aside class="mosque-watermark rounded-3xl bg-sand p-7">
-            <p class="font-arabic text-right text-3xl text-forest">الْعِلْمُ نُورٌ</p>
-            <p class="mt-4 font-serif text-2xl text-forest">Ilmu adalah cahaya</p>
-            <p class="mt-3 text-sm leading-relaxed text-muted">Cahaya itu merawat hati, menuntun langkah, dan membuat manfaat sampai kepada orang lain.</p>
+            <p class="font-arabic text-right text-3xl text-forest">{{ $contents['pendidikan.aside_ar'] ?? 'الْعِلْمُ نُورٌ' }}</p>
+            <p class="mt-4 font-serif text-2xl text-forest">{{ $contents['pendidikan.aside_title'] ?? 'Ilmu adalah cahaya' }}</p>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{{ $contents['pendidikan.aside_text'] ?? 'Cahaya itu merawat hati, menuntun langkah, dan membuat manfaat sampai kepada orang lain.' }}</p>
         </aside>
     </div>
 </section>
 
 @include('partials.cta-banner', [
     'heading' => $contents['pendidikan.cta_title'] ?? 'Bersama Kami, Wujudkan Masa Depan yang Lebih Baik.',
-    'text' => 'Konsultasikan jenjang dan program yang sesuai dengan putra-putri Anda.',
+    'text' => $contents['pendidikan.cta_text'] ?? 'Konsultasikan jenjang dan program yang sesuai dengan putra-putri Anda.',
+    'button' => $contents['pendidikan.cta_button'] ?? 'Daftar Sekarang',
 ])
 @endsection

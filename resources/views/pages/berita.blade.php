@@ -28,9 +28,9 @@
 
     <div class="container-site grid gap-8 py-16 lg:grid-cols-[1fr_300px]">
         <div>
-            <p class="text-xs font-semibold tracking-[0.18em] text-forest">BERITA TERBARU</p>
-            <h2 class="mt-2 font-serif text-3xl font-semibold">Berita Terkini</h2>
-            <p class="mt-2 mb-6 text-sm text-muted">Informasi terbaru dari kehidupan dan kegiatan pondok.</p>
+            <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['berita.list_eyebrow'] ?? 'BERITA TERBARU' }}</p>
+            <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['berita.list_title'] ?? 'Berita Terkini' }}</h2>
+            <p class="mt-2 mb-6 text-sm text-muted">{{ $contents['berita.list_text'] ?? 'Informasi terbaru dari kehidupan dan kegiatan pondok.' }}</p>
 
             @if ($featured)
                 <article class="mb-8 overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5">
@@ -100,9 +100,9 @@
 </section>
 
 @include('partials.cta-banner', [
-    'heading' => 'Dukung pendidikan santri',
-    'text' => 'Kontribusi Anda membantu kegiatan belajar dan pembinaan tetap berjalan.',
-    'button' => 'Dukung Kami',
+    'heading' => $contents['berita.cta_title'] ?? 'Dukung pendidikan santri',
+    'text' => $contents['berita.cta_text'] ?? 'Kontribusi Anda membantu kegiatan belajar dan pembinaan tetap berjalan.',
+    'button' => $contents['berita.cta_button'] ?? 'Dukung Kami',
     'href' => route('kontak'),
 ])
 @endsection

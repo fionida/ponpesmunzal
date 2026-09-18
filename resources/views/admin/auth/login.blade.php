@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="relative z-10 max-w-md">
-                <p class="mb-3 text-xs font-semibold tracking-[0.2em] text-[#1b84ff] uppercase">Nurul Huda</p>
+                <p class="mb-3 text-xs font-semibold tracking-[0.2em] text-[#1b84ff] uppercase">Nurul Munzak</p>
                 <h1 class="font-serif text-4xl leading-tight font-semibold text-white xl:text-5xl">
                     Kelola web pondok dengan mudah
                 </h1>
@@ -64,7 +64,7 @@
                         @csrf
                         <label class="block text-sm">
                             <span class="mb-1.5 block font-medium text-[#252f4a]">Email</span>
-                            <input type="email" name="email" value="{{ old('email', 'admin@nurulhuda.ac.id') }}" required class="metro-input" autofocus placeholder="admin@email.com">
+                            <input type="email" name="email" value="{{ old('email', 'admin@munzal.ac.id') }}" required class="metro-input" autofocus placeholder="admin@email.com">
                         </label>
                         <label class="block text-sm">
                             <span class="mb-1.5 block font-medium text-[#252f4a]">Password</span>
@@ -88,7 +88,7 @@
                 </div>
 
                 <p class="mt-6 text-center text-xs text-[#78829d]">
-                    Default: <span class="font-medium text-[#252f4a]">admin@nurulhuda.ac.id</span> / <span class="font-medium text-[#252f4a]">password</span>
+                    Default: <span class="font-medium text-[#252f4a]">admin@nurulmunzal.ac.id</span> / <span class="font-medium text-[#252f4a]">password</span>
                 </p>
             </div>
         </main>

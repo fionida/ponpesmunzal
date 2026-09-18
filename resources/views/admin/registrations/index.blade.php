@@ -75,10 +75,12 @@
                             <td class="px-3 py-3 text-[#78829d]">{{ $items->firstItem() + $loop->index }}</td>
                             <td class="px-4 py-3">
                                 <p class="font-medium text-[#252f4a]">{{ $item->nama }}</p>
-                                <p class="text-xs text-[#78829d]">{{ $item->ttl }}</p>
+                                <p class="text-xs text-[#78829d]">
+                                    {{ $item->jenis_kelamin ? $item->jenis_kelamin.' · ' : '' }}{{ $item->ttlDisplay() }}
+                                </p>
                             </td>
                             <td class="px-4 py-3">
-                                <p>{{ $item->wali }}</p>
+                                <p>{{ $item->wali }}{{ $item->hubungan_wali ? ' ('.$item->hubungan_wali.')' : '' }}</p>
                                 <p class="text-xs text-[#78829d]">{{ $item->whatsapp }}</p>
                             </td>
                             <td class="px-4 py-3">{{ $item->program }}</td>

@@ -38,7 +38,7 @@
             <div class="flex h-[70px] items-center gap-3 border-b border-white/5 px-5">
                 @include('partials.logo', ['size' => 36])
                 <div class="min-w-0">
-                    <p class="truncate text-[15px] font-semibold text-white">Nurul Huda</p>
+                    <p class="truncate text-[15px] font-semibold text-white">Nurul Munzal</p>
                     <p class="text-[11px] text-[#9899ac]">CMS Admin Panel</p>
                 </div>
             </div>

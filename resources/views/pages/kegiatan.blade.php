@@ -13,7 +13,7 @@
 <section class="relative z-10 -mt-8" x-data="{ filter: 'semua' }">
     <div class="container-site">
         <div class="card-soft flex gap-2 overflow-x-auto p-3">
-            @foreach (['semua' => 'Semua Kegiatan','keagamaan' => 'Keagamaan','akademik' => 'Akademik','ekskul' => 'Ekstrakurikuler','sosial' => 'Sosial & Kemasyarakatan','pimpinan' => 'Kepemimpinan','olahraga' => 'Kesehatan & Olahraga'] as $key => $label)
+            @foreach (['semua' => 'Semua Kegiatan','keagamaan' => 'Keagamaan','akademik' => 'Akademik','ekskul' => 'Ekstrakurikuler','sosial' => 'Sosial','pimpinan' => 'Kepemimpinan','olahraga' => 'Olahraga'] as $key => $label)
                 <button type="button" @click="filter = '{{ $key }}'" :class="filter === '{{ $key }}' ? 'bg-forest text-white' : 'text-ink hover:bg-mist'" class="shrink-0 rounded-xl px-4 py-3 text-sm font-medium">
                     {{ $label }}
                 </button>
@@ -24,14 +24,18 @@
     <div class="container-site py-16">
         <div class="mb-8 flex items-end justify-between">
             <div>
-                <p class="text-xs font-semibold tracking-[0.18em] text-forest">KEGIATAN TERBARU</p>
-                <h2 class="mt-2 font-serif text-3xl font-semibold">Informasi Kegiatan Pesantren</h2>
+                <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['kegiatan.list_eyebrow'] ?? 'KEGIATAN TERBARU' }}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['kegiatan.list_title'] ?? 'Informasi Kegiatan Pesantren' }}</h2>
             </div>
             <a href="{{ route('berita') }}" class="text-sm font-semibold text-forest">Lihat Semua Kegiatan →</a>
         </div>
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             @forelse (($posts ?? collect()) as $k)
-                <article class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
+                <article
+                    class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                    x-show="filter === 'semua' || '{{ strtolower($k->category) }}'.includes(filter)"
+                    x-cloak
+                >
                     <div class="relative">
                         <img src="{{ $k->coverUrl() }}" alt="{{ $k->title }}" class="h-36 w-full object-cover">
                         <span class="absolute top-3 left-3 rounded-full bg-forest px-2.5 py-1 text-[11px] font-semibold text-white">{{ $k->category }}</span>
@@ -75,8 +79,8 @@
     <div class="container-site">
         <div class="mb-8 flex items-end justify-between">
             <div>
-                <p class="text-xs font-semibold tracking-[0.18em] text-forest">DOKUMENTASI</p>
-                <h2 class="mt-2 font-serif text-3xl font-semibold">Galeri Kegiatan</h2>
+                <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['kegiatan.galeri_eyebrow'] ?? 'DOKUMENTASI' }}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['kegiatan.galeri_title'] ?? 'Galeri Kegiatan' }}</h2>
             </div>
             <a href="{{ route('galeri') }}" class="text-sm font-semibold text-forest">Lihat Semua Galeri →</a>
         </div>
@@ -93,9 +97,9 @@
 </section>
 
 @include('partials.cta-banner', [
-    'heading' => 'Mari Dukung Kegiatan Pesantren',
-    'text' => 'Dukungan Anda membantu kegiatan belajar, ibadah, dan pengabdian santri tetap berjalan.',
-    'button' => 'Hubungi Kami',
+    'heading' => $contents['kegiatan.cta_title'] ?? 'Mari Dukung Kegiatan Pesantren',
+    'text' => $contents['kegiatan.cta_text'] ?? 'Dukungan Anda membantu kegiatan belajar, ibadah, dan pengabdian santri tetap berjalan.',
+    'button' => $contents['kegiatan.cta_button'] ?? 'Hubungi Kami',
     'href' => route('kontak'),
 ])
 @endsection

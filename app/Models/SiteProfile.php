@@ -60,7 +60,7 @@ class SiteProfile extends Model
             'stat_teachers' => '100+',
             'stat_alumni' => '10.000+',
             'pengasuh_name' => 'KH. Ahmad Fauzi, Lc.',
-            'pengasuh_title' => 'Pengasuh Pondok Pesantren Nurul Huda',
+            'pengasuh_title' => 'Pengasuh Pondok Pesantren Nurul Munzal',
         ]);
     }
 

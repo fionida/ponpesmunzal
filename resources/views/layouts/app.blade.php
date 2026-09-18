@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $meta ?? 'Pondok Pesantren Nurul Huda — Ilmu, Adab, Manfaat. Pendidikan Qur’ani, berilmu, dan berakhlakul karimah.' }}">
+    <meta name="description" content="{{ $meta ?? 'Pondok Pesantren Nurul Munzal — Ilmu, Adab, Manfaat. Pendidikan Qur’ani, berilmu, dan berakhlakul karimah.' }}">
     <title>{{ isset($title) ? $title.' | ' : '' }}{{ config('ponpes.name') }}</title>
     @fonts
     @vite(['resources/css/app.css', 'resources/js/app.js'])

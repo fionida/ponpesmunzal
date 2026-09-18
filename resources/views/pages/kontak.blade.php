@@ -31,7 +31,7 @@
     <div class="container-site grid items-start gap-10 lg:grid-cols-[1fr_.9fr]">
         <div>
             <p class="mb-2 h-1 w-10 rounded-full bg-forest"></p>
-            <h2 class="font-serif text-3xl font-semibold">Formulir Kontak</h2>
+            <h2 class="font-serif text-3xl font-semibold">{{ $contents['kontak.form_title'] ?? 'Formulir Kontak' }}</h2>
             @if (session('success'))
                 <p class="mt-4 rounded-xl bg-sand px-4 py-3 text-sm text-forest">{{ session('success') }}</p>
             @endif
@@ -55,10 +55,11 @@
                     <label class="block text-sm">
                         <span class="mb-1.5 block font-medium">Subjek</span>
                         <select name="subjek" class="input-field">
-                            <option>Pertanyaan Pendaftaran</option>
-                            <option>Kerja Sama</option>
-                            <option>Saran & Masukan</option>
-                            <option>Lainnya</option>
+                            @foreach (preg_split('/\r\n|\r|\n/', $contents['kontak.subjects'] ?? "Pertanyaan Pendaftaran\nKerja Sama\nSaran & Masukan\nLainnya") as $opt)
+                                @if (trim($opt) !== '')
+                                    <option {{ old('subjek') === trim($opt) ? 'selected' : '' }}>{{ trim($opt) }}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </label>
                 </div>
@@ -76,19 +77,18 @@
             <div class="relative overflow-hidden rounded-3xl">
                 <img src="{{ $img['campus'] }}" alt="Gedung pondok" class="h-80 w-full object-cover">
                 <div class="absolute right-0 bottom-0 left-0 bg-forest/90 p-5 text-sm text-white">
-                    “Silaturahmi adalah jembatan menuju keberkahan dan kemajuan bersama.”
+                    “{{ $contents['kontak.aside_quote'] ?? 'Silaturahmi adalah jembatan menuju keberkahan dan kemajuan bersama.' }}”
                 </div>
             </div>
             <div class="mt-4 space-y-3">
-                @foreach ([
-                    ['Pertanyaan Seputar Pendaftaran', 'Jadwal, syarat, dan program yang sesuai.'],
-                    ['Kerja Sama', 'Kunjungan, pengajian, dan kolaborasi lembaga.'],
-                    ['Saran & Masukan', 'Kami terbuka merawat mutu pelayanan pondok.'],
-                ] as $i)
-                    <div class="rounded-2xl bg-mist p-4">
-                        <h3 class="font-semibold text-forest">{{ $i[0] }}</h3>
-                        <p class="text-sm text-muted">{{ $i[1] }}</p>
-                    </div>
+                @foreach (preg_split('/\r\n|\r|\n/', $contents['kontak.help_items'] ?? "Pertanyaan Seputar Pendaftaran|Jadwal, syarat, dan program yang sesuai.\nKerja Sama|Kunjungan, pengajian, dan kolaborasi lembaga.\nSaran & Masukan|Kami terbuka merawat mutu pelayanan pondok.") as $line)
+                    @php $parts = array_map('trim', explode('|', $line, 2)); @endphp
+                    @if (($parts[0] ?? '') !== '')
+                        <div class="rounded-2xl bg-mist p-4">
+                            <h3 class="font-semibold text-forest">{{ $parts[0] }}</h3>
+                            <p class="text-sm text-muted">{{ $parts[1] ?? '' }}</p>
+                        </div>
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -148,9 +148,9 @@
 </section>
 
 @include('partials.cta-banner', [
-    'heading' => 'Mari Terhubung dan Bersinergi',
-    'text' => 'Tim pondok siap membantu pertanyaan pendaftaran dan kerja sama.',
-    'button' => 'Hubungi Kami Sekarang',
+    'heading' => $contents['kontak.cta_title'] ?? 'Mari Terhubung dan Bersinergi',
+    'text' => $contents['kontak.cta_text'] ?? 'Tim pondok siap membantu pertanyaan pendaftaran dan kerja sama.',
+    'button' => $contents['kontak.cta_button'] ?? 'Hubungi Kami Sekarang',
     'href' => route('kontak'),
 ])
 @endsection

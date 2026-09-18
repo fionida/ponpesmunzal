@@ -4,7 +4,7 @@
 @include('partials.page-hero', [
     'image' => $img['campus'],
     'crumb' => 'Profil',
-    'heading' => $contents['profil.hero_title'] ?? 'Profil Pondok Pesantren Nurul Huda',
+    'heading' => $contents['profil.hero_title'] ?? 'Profil Pondok Pesantren Nurul Munzal',
     'text' => $contents['profil.hero_text'] ?? 'Mengenal sejarah, visi, pengasuh, dan arah pendidikan yang merawat tradisi sekaligus menyongsong masa depan.',
 ])
 
@@ -26,10 +26,10 @@
         </aside>
 
         <div>
-            <p class="text-xs font-semibold tracking-[0.18em] text-forest">SEKILAS PROFIL</p>
-            <h2 class="mt-2 font-serif text-3xl font-semibold">Rumah ilmu yang merawat adab</h2>
+            <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['profil.sekilas_eyebrow'] ?? 'SEKILAS PROFIL' }}</p>
+            <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['profil.sekilas_title'] ?? 'Rumah ilmu yang merawat adab' }}</h2>
             <p class="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
-                {{ $profile->about ?: 'Pondok Pesantren Nurul Huda berdiri sebagai lembaga pendidikan Islam yang memadukan pengajian kitab, tahfidz, dan pendidikan formal.' }}
+                {{ $profile->about ?: 'Pondok Pesantren Nurul Munzal berdiri sebagai lembaga pendidikan Islam yang memadukan pengajian kitab, tahfidz, dan pendidikan formal.' }}
             </p>
             <blockquote class="my-6 border-l-4 border-gold pl-5 font-serif text-xl text-forest">
                 “{{ $contents['profil.blockquote'] ?? 'Ilmu yang bermanfaat adalah ilmu yang menuntun adab, dan adab yang baik menuntun manfaat bagi sesama.' }}”
@@ -38,10 +38,10 @@
 
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach ([
-                    [$profile->stat_years ?? '20+', 'Tahun Berdiri'],
-                    [$profile->stat_students ?? '1.500+', 'Santri Aktif'],
-                    [$profile->stat_teachers ?? '100+', 'Tenaga Pengajar'],
-                    [$profile->stat_alumni ?? '10.000+', 'Alumni'],
+                    [$profile->stat_years ?? '20+', $contents['beranda.stat_label_years'] ?? 'Tahun Berdiri'],
+                    [$profile->stat_students ?? '1.500+', $contents['beranda.stat_label_students'] ?? 'Santri Aktif'],
+                    [$profile->stat_teachers ?? '100+', $contents['beranda.stat_label_teachers'] ?? 'Tenaga Pengajar'],
+                    [$profile->stat_alumni ?? '10.000+', $contents['beranda.stat_label_alumni'] ?? 'Alumni'],
                 ] as $stat)
                     <div class="rounded-2xl bg-mist p-5">
                         <p class="font-serif text-3xl font-semibold text-forest">{{ $stat[0] }}</p>
@@ -55,8 +55,8 @@
 
 <section id="visi" class="bg-mist mosque-watermark py-16">
     <div class="container-site">
-        <p class="text-xs font-semibold tracking-[0.18em] text-forest">ARAH PENDIDIKAN</p>
-        <h2 class="mt-2 mb-8 font-serif text-3xl font-semibold">Visi, Misi & Tujuan</h2>
+        <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['profil.visi_eyebrow'] ?? 'ARAH PENDIDIKAN' }}</p>
+        <h2 class="mt-2 mb-8 font-serif text-3xl font-semibold">{{ $contents['profil.visi_title'] ?? 'Visi, Misi & Tujuan' }}</h2>
         <div class="grid gap-5 lg:grid-cols-3">
             <article class="rounded-2xl bg-white p-6 shadow-sm">
                 <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-sand text-forest">◉</div>
@@ -92,8 +92,8 @@
 <section id="sejarah" class="py-16">
     <div class="container-site grid items-start gap-10 lg:grid-cols-2">
         <div>
-            <p class="text-xs font-semibold tracking-[0.18em] text-forest">SEJARAH SINGKAT</p>
-            <h2 class="mt-2 font-serif text-3xl font-semibold">Tumbuh dari niat, merawat amanah</h2>
+            <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['profil.sejarah_eyebrow'] ?? 'SEJARAH SINGKAT' }}</p>
+            <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['profil.sejarah_title'] ?? 'Tumbuh dari niat, merawat amanah' }}</h2>
             <p class="mt-4 text-sm leading-relaxed text-muted">
                 {{ $profile->history ?: 'Didirikan pada 2004 oleh KH. Ahmad Fauzi, Lc., pondok ini berawal dari pengajian kecil yang kemudian tumbuh menjadi lembaga pendidikan dengan asrama, madrasah, dan jenjang formal.' }}
             </p>
@@ -119,7 +119,7 @@
         <div>
             <p class="text-xs font-semibold tracking-[0.18em] text-forest">PENGASUH</p>
             <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $profile->pengasuh_name ?: 'KH. Ahmad Fauzi, Lc.' }}</h2>
-            <p class="mt-1 text-sm text-muted">{{ $profile->pengasuh_title ?: 'Pengasuh Pondok Pesantren Nurul Huda' }}</p>
+            <p class="mt-1 text-sm text-muted">{{ $profile->pengasuh_title ?: 'Pengasuh Pondok Pesantren Nurul Munzal' }}</p>
             <p class="mt-4 text-sm leading-relaxed text-muted">{{ $profile->pengasuh_bio ?: 'Beliau menempuh pendidikan di pesantren dan perguruan tinggi di Timur Tengah, lalu pulang mengabdikan ilmu untuk membangun generasi yang kokoh dalam iman dan luas dalam wawasan.' }}</p>
             <a href="{{ route('kontak') }}" class="mt-4 inline-flex text-sm font-semibold text-forest">Profil Lengkap →</a>
         </div>
@@ -139,8 +139,8 @@
     <div class="container-site relative">
         <div class="mb-8 flex items-end justify-between">
             <div>
-                <p class="text-xs font-semibold tracking-[0.18em] text-forest">SARANA & PRASARANA</p>
-                <h2 class="mt-2 font-serif text-3xl font-semibold">Fasilitas yang menunjang ibadah dan belajar</h2>
+                <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['profil.fasilitas_eyebrow'] ?? 'SARANA & PRASARANA' }}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['profil.fasilitas_title'] ?? 'Fasilitas yang menunjang ibadah dan belajar' }}</h2>
             </div>
             <a href="{{ route('pendidikan') }}" class="text-sm font-semibold text-forest">Lihat Detail Fasilitas →</a>
         </div>
@@ -157,8 +157,25 @@
     </div>
 </section>
 
+<section id="prestasi" class="py-16">
+    <div class="container-site">
+        <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['profil.prestasi_eyebrow'] ?? 'PRESTASI' }}</p>
+        <h2 class="mt-2 mb-8 font-serif text-3xl font-semibold">{{ $contents['profil.prestasi_title'] ?? 'Capaian yang tumbuh dari proses' }}</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            @foreach (preg_split('/\r\n|\r|\n/', $contents['profil.prestasi_items'] ?? "Juara tahfidz tingkat kabupaten\nPengabdian santri di masyarakat\nAlumni tersebar di berbagai lembaga") as $item)
+                @if (trim($item) !== '')
+                    <div class="rounded-2xl bg-mist p-5">
+                        <h3 class="font-semibold text-forest">{{ trim($item) }}</h3>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+    </div>
+</section>
+
 @include('partials.cta-banner', [
-    'heading' => $contents['profil.cta_title'] ?? 'Mari menjadi bagian dari keluarga besar Nurul Huda',
-    'text' => 'Pendaftaran santri baru dibuka. Konsultasikan program yang sesuai bersama panitia.',
+    'heading' => $contents['profil.cta_title'] ?? 'Mari menjadi bagian dari keluarga besar Nurul Munzal',
+    'text' => $contents['profil.cta_text'] ?? 'Pendaftaran santri baru dibuka. Konsultasikan program yang sesuai bersama panitia.',
+    'button' => $contents['profil.cta_button'] ?? 'Daftar Sekarang',
 ])
 @endsection

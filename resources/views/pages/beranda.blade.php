@@ -10,7 +10,7 @@
 
     <div class="container-site relative grid min-h-[620px] items-center gap-10 py-20 lg:grid-cols-[1.15fr_.85fr]">
         <div class="max-w-2xl text-white">
-            <p class="text-xs font-semibold tracking-[0.22em] text-white/80">{{ $contents['beranda.hero_eyebrow'] ?? 'PONDOK PESANTREN NURUL HUDA' }}</p>
+            <p class="text-xs font-semibold tracking-[0.22em] text-white/80">{{ $contents['beranda.hero_eyebrow'] ?? 'PONDOK PESANTREN NURUL MUNZAL' }}</p>
             <h1 class="mt-4 font-serif text-4xl leading-[1.15] font-semibold md:text-5xl">
                 {{ $contents['beranda.hero_title'] ?? 'Membangun Generasi Qur’ani, Berilmu dan Berakhlakul Karimah' }}
             </h1>
@@ -18,8 +18,8 @@
                 {{ $contents['beranda.hero_text'] ?? 'Lingkungan pendidikan yang memadukan ilmu agama dan pengetahuan umum, menumbuhkan adab, serta menyiapkan santri bermanfaat bagi umat.' }}
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
-                <a href="{{ route('profil') }}" class="btn-forest">Tentang Pondok <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-                <a href="{{ route('pendaftaran') }}" class="btn-outline-white">Pendaftaran Santri Baru</a>
+                <a href="{{ route('profil') }}" class="btn-forest">{{ $contents['beranda.hero_btn_primary'] ?? 'Tentang Pondok' }} <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a href="{{ route('pendaftaran') }}" class="btn-outline-white">{{ $contents['beranda.hero_btn_secondary'] ?? 'Pendaftaran Santri Baru' }}</a>
             </div>
             <div class="mt-10 flex gap-2">
                 <span class="h-2 w-6 rounded-full bg-white"></span>
@@ -45,10 +45,10 @@
         <div class="card-soft grid overflow-hidden md:grid-cols-[1fr_220px]">
             <div class="grid gap-6 px-6 py-7 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach ([
-                    [$profile->stat_years ?? '20+', 'Tahun Berdiri'],
-                    [$profile->stat_students ?? '1.500+', 'Santri Aktif'],
-                    [$profile->stat_teachers ?? '100+', 'Tenaga Pengajar'],
-                    [$profile->stat_alumni ?? '10.000+', 'Alumni'],
+                    [$profile->stat_years ?? '20+', $contents['beranda.stat_label_years'] ?? 'Tahun Berdiri'],
+                    [$profile->stat_students ?? '1.500+', $contents['beranda.stat_label_students'] ?? 'Santri Aktif'],
+                    [$profile->stat_teachers ?? '100+', $contents['beranda.stat_label_teachers'] ?? 'Tenaga Pengajar'],
+                    [$profile->stat_alumni ?? '10.000+', $contents['beranda.stat_label_alumni'] ?? 'Alumni'],
                 ] as $stat)
                     <div>
                         <div class="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sand text-forest">
@@ -71,8 +71,8 @@
     <div class="container-site">
         <div class="mb-8 flex items-end justify-between gap-4">
             <div>
-                <p class="text-xs font-semibold tracking-[0.18em] text-forest">PROGRAM PENDIDIKAN</p>
-                <h2 class="mt-2 font-serif text-3xl font-semibold">Pendidikan Menyeluruh untuk Masa Depan</h2>
+                <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['beranda.programs_eyebrow'] ?? 'PROGRAM PENDIDIKAN' }}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['beranda.programs_title'] ?? 'Pendidikan Menyeluruh untuk Masa Depan' }}</h2>
             </div>
             <a href="{{ route('pendidikan') }}" class="hidden text-sm font-semibold text-forest md:inline-flex">Lihat Semua Program →</a>
         </div>
@@ -102,7 +102,7 @@
     <div class="container-site grid items-center gap-8 lg:grid-cols-[.85fr_1.15fr_.9fr]">
         <img src="{{ $profile->pengasuhPhotoUrl() }}" alt="{{ $profile->pengasuh_name }}" class="h-[420px] w-full rounded-[2rem] object-cover">
         <div>
-            <p class="text-xs font-semibold tracking-[0.18em] text-forest">SAMBUTAN PENGASUH</p>
+            <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['beranda.sambutan_eyebrow'] ?? 'SAMBUTAN PENGASUH' }}</p>
             <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['beranda.sambutan_title'] ?? 'Merawat Tradisi, Menyongsong Masa Depan' }}</h2>
             <p class="mt-4 text-sm leading-relaxed text-muted">
                 {{ $profile->pengasuh_bio ?: 'Pondok ini didirikan untuk merawat tradisi keilmuan pesantren sekaligus membuka ruang bagi santri tumbuh di zaman yang terus berubah.' }}
@@ -131,8 +131,8 @@
         <div>
             <div class="mb-5 flex items-end justify-between">
                 <div>
-                    <p class="text-xs font-semibold tracking-[0.18em] text-forest">KEHIDUPAN SANTRI</p>
-                    <h2 class="mt-2 font-serif text-3xl font-semibold">Langkah Kecil, Cerita Besar</h2>
+                    <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['beranda.gallery_eyebrow'] ?? 'KEHIDUPAN SANTRI' }}</p>
+                    <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['beranda.gallery_title'] ?? 'Langkah Kecil, Cerita Besar' }}</h2>
                 </div>
                 <a href="{{ route('galeri') }}" class="text-sm font-semibold text-forest">Lihat Galeri →</a>
             </div>
@@ -153,8 +153,8 @@
         <div>
             <div class="mb-5 flex items-end justify-between">
                 <div>
-                    <p class="text-xs font-semibold tracking-[0.18em] text-forest">BERITA TERKINI</p>
-                    <h2 class="mt-2 font-serif text-3xl font-semibold">Informasi & Kegiatan</h2>
+                    <p class="text-xs font-semibold tracking-[0.18em] text-forest">{{ $contents['beranda.news_eyebrow'] ?? 'BERITA TERKINI' }}</p>
+                    <h2 class="mt-2 font-serif text-3xl font-semibold">{{ $contents['beranda.news_title'] ?? 'Informasi & Kegiatan' }}</h2>
                 </div>
                 <a href="{{ route('berita') }}" class="text-sm font-semibold text-forest">Lihat Semua →</a>
             </div>
@@ -185,7 +185,7 @@
         <div class="text-white">
             <h2 class="font-serif text-3xl font-semibold md:text-4xl">{{ $contents['beranda.cta_title'] ?? 'Bergabunglah Bersama Kami' }}</h2>
             <p class="mt-3 max-w-lg text-sm text-white/80">{{ $contents['beranda.cta_text'] ?? 'Buka kesempatan bagi putra-putri untuk tumbuh dalam lingkungan yang merawat ilmu, adab, dan manfaat.' }}</p>
-            <a href="{{ route('pendaftaran') }}" class="btn-gold mt-6">Daftar Sekarang →</a>
+            <a href="{{ route('pendaftaran') }}" class="btn-gold mt-6">{{ $contents['beranda.cta_button'] ?? 'Daftar Sekarang →' }}</a>
         </div>
         <div class="justify-self-end">
             <div class="max-w-sm rounded-2xl border border-white/30 p-6 text-white">
